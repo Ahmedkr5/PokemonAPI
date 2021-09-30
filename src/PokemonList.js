@@ -1,13 +1,15 @@
 import React from 'react'
 import PokeCard from './components/Card/PokeCard';
+import { makeStyles } from '@mui/styles';
 import Container from '@mui/material/Container';
-export default function PokemonList({pokemon}) {
+export default function PokemonList(props) {
+
     return (
-        <Container  style={{display:'flex',flexWrap:'wrap',justifyContent:'center '}}>
+        <Container  style={{ display: 'flex',flexDirection:'row',flexWrap:'wrap'}}>
 
         
-           {pokemon.map(p=>(
-           <PokeCard key={p} pokemon={p}></PokeCard>
+           {props.pokemon.map((p,index)=>(
+           <PokeCard key={index} pokemon={p} style={{width:'30%',height:500}}></PokeCard>
            ))} 
    
         </Container>

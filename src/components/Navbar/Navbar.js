@@ -18,7 +18,7 @@ export default function Navbar() {
   const classes = useStyles();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static"  style={{ background: '#FF4236' }}>
+      <AppBar position="static"  style={{ background: '#ce0000' }}>
         <Toolbar>
       <CatchingPokemonIcon/>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

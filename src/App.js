@@ -5,18 +5,21 @@ import Pagination from "./Pagination";
 import Navbar from "./components/Navbar/Navbar";
 function App() {
   const [pokemon, setPokemon] = useState([]);
+  
   const [currentpageUrl, setCurrentpageUrl] = useState("https://pokeapi.co/api/v2/pokemon");
   const [nextpageUrl, setNextpageUrl] = useState();
   const [prevpageUrl, setPrevpageUrl] = useState();
+  const [loading, setLoading] = useState(true);
   
-  
-  useEffect(() => {
+  useEffect(() => {setLoading(true)
     let cancel
+    
         axios.get(currentpageUrl,{cancelToken : new axios.CancelToken(c=> cancel =c)}).then((res) => {
+          setLoading(false)
       setNextpageUrl(res.data.next)
       setPrevpageUrl(res.data.previous)
-      setPokemon(res.data.results.map((p) => p.name))
-   
+      setPokemon(res.data.results)
+      
     });
     return () => cancel()
   }, [currentpageUrl]);
@@ -30,14 +33,15 @@ function App() {
     setCurrentpageUrl(prevpageUrl);
   }
 
+  if(loading) return "Loading..."
 
 
-
-  return (<>
+  return (<div style={{backgroundColor:'#f9f9f9'}}>
   <Navbar></Navbar>
-  <PokemonList pokemon={pokemon}></PokemonList>
-          <Pagination gotoNextPage={nextpageUrl ? gotoNextPage :null } gotoPrevPage={prevpageUrl ? gotoPrevPage :null }></Pagination>
-          </>
+  <Pagination  gotoNextPage={nextpageUrl ? gotoNextPage :null } gotoPrevPage={prevpageUrl ? gotoPrevPage :null }></Pagination>
+  <PokemonList pokemon={pokemon} ></PokemonList>
+         
+          </div>
     );
 
 }
