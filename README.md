@@ -1,4 +1,13 @@
+# PokemonAPI
+A Pokémon Application built with React. \
+using: functional components /hooks(useState,useEffect) / props / API fetching with axios/ Pagination / Material UI & CSS and simple loading image...\
+Deployed with Netlify : https://mypokemon-app.netlify.app/
+
+API source : https://pokeapi.co/
+
+
 # Getting Started with Create React App
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
