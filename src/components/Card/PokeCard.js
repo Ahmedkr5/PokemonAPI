@@ -39,7 +39,7 @@ export default function PokeCard(props) {
 
 
 
-if(loading) return " "
+if(loading) return ( <img src='../../../assets/poke.gif' alt="loading..." style={{width:350,height:480,marginBottom:'10px',marginLeft:'10px',borderRadius:10}}/>)
   return (
     
 <CardInfo pokemon={props.pokemon.name} pokeinfo={pokemondetail}></CardInfo>
