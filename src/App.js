@@ -39,7 +39,7 @@ function App() {
   return (<div style={{backgroundColor:'#f9f9f9'}}>
   <Navbar></Navbar>
   <Pagination  gotoNextPage={nextpageUrl ? gotoNextPage :null } gotoPrevPage={prevpageUrl ? gotoPrevPage :null }></Pagination>
-  <PokemonList pokemon={pokemon} ></PokemonList>
+  <PokemonList pokemon={pokemon}  ></PokemonList>
          
           </div>
     );

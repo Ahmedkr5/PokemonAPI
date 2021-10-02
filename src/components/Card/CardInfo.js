@@ -1,14 +1,17 @@
 import React from 'react'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
+
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+
 import Typography from '@mui/material/Typography';
-// import typeColors from '../typecolors';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 
+import ShieldIcon from '@mui/icons-material/Shield';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
+import FlashOnIcon from '@mui/icons-material/FlashOn';
 const typeColors = {
   bug: '#729f3f',
   dragon: '#53a4cf',
@@ -31,12 +34,29 @@ const typeColors = {
 }
 
 
+
 export default function CardInfo(props) {
+ 
+  
+
+
+
     return (
-        <Card style={{width:350,height:500,marginBottom:'10px',marginLeft:'10px',borderRadius:10}}>
+        <Card style={{width:350,height:480,marginBottom:'10px',marginLeft:'10px',borderRadius:10}}>
+          <CardContent style={{height:'40px',padding:8}}>
+          <Typography  variant="h5" component="div"  style={{display:'flex'}}>
+    
+          
+     <div style={{width:'50%',display:'flex',flexDirection:'column',alignItems:'flex-start',marginLeft:10}} >
+   
+   <ShieldIcon style={{color:'lightgrey'}}  fontSize='large'/>  <b style={{color:'grey',marginLeft:4}}> {props?.pokeinfo?.stats[2]?.base_stat}</b></div>
+   <div style={{width:'50%',display:'flex',flexDirection:'column',alignItems:'flex-end',marginRight:10}}>  <FavoriteIcon style={{color:'red'}} fontSize='large' />  <b style={{color:'red',marginRight:4}}> {props?.pokeinfo?.stats[0]?.base_stat}</b></div>
+   </Typography>
+          </CardContent>
         <CardMedia
           component="img"
-          height="300"
+          style={{height: 200,width:200,marginLeft:'20%'}}
+          
           image={props?.pokeinfo?.sprites.front_default}
           alt=""
         />
@@ -49,16 +69,17 @@ export default function CardInfo(props) {
                 }
                 </Stack>
           <Typography gutterBottom variant="h5" component="div">
-            {props.pokemon}
+        <b>    {props.pokemon}</b>
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          <b> Abilties:</b> {props?.pokeinfo?.abilities[0].ability.name}
+         <b> Abilties:</b> {props?.pokeinfo?.abilities[0].ability.name}-
+          {props?.pokeinfo?.abilities[1]?.ability.name} <br/>
+          <b>  Height:</b> {props.pokeinfo.height}<br/>
+          <b> Weight:</b> {props.pokeinfo.weight}</Typography>
+          <Typography  variant="h5" component="div"  >  <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end'}}> <  FlashOnIcon  style={{color:'gold'}} fontSize='large' /><b style={{color:'gold',marginRight:4}}>{props?.pokeinfo?.stats[1]?.base_stat}</b> </div>
           </Typography>
         </CardContent>
-        <CardActions>
-          
-          <Button size="small">Learn More</Button>
-        </CardActions>
+      
       </Card>
     )
 }

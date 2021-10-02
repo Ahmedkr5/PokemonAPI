@@ -1,6 +1,6 @@
 import React from 'react'
 import PokeCard from './components/Card/PokeCard';
-import { makeStyles } from '@mui/styles';
+
 import Container from '@mui/material/Container';
 export default function PokemonList(props) {
 
@@ -9,7 +9,7 @@ export default function PokemonList(props) {
 
         
            {props.pokemon.map((p,index)=>(
-           <PokeCard key={index} pokemon={p} style={{width:'30%',height:500}}></PokeCard>
+           <PokeCard key={index} pokemon={p} style={{width:'30%',height:500}} ></PokeCard>
            ))} 
    
         </Container>
